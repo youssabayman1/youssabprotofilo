@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const portfolio = {
   name: 'Youssab Ayman',
@@ -135,6 +135,18 @@ const projects = [
 function App() {
   const [copied, setCopied] = useState(false)
   const [activeTab, setActiveTab] = useState('email')
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('theme') || 'light'
+  })
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme)
+    localStorage.setItem('theme', theme)
+  }, [theme])
+
+  const toggleTheme = () => {
+    setTheme(theme === 'light' ? 'dark' : 'light')
+  }
 
   const handleCopy = async () => {
     try {
@@ -153,8 +165,31 @@ function App() {
   }
 
   return (
-    <main className="page">
-      <header className="hero main-card reveal">
+    <>
+      <nav className="nav-header">
+        <div className="nav-container">
+          <a href="#home" className="nav-logo">YA</a>
+          <div className="nav-links">
+            <a href="#home" className="nav-link">Home</a>
+            <a href="#summary" className="nav-link">About</a>
+            <a href="#services" className="nav-link">Services</a>
+            <a href="#tech" className="nav-link">Tech Stack</a>
+            <a href="#projects" className="nav-link">Projects</a>
+            <label className="switch">
+              <input 
+                type="checkbox" 
+                checked={theme === 'dark'}
+                onChange={toggleTheme}
+                aria-label="Toggle theme"
+              />
+              <span className="slider"></span>
+            </label>
+          </div>
+        </div>
+      </nav>
+      
+      <main className="page">
+        <header id="home" className="hero main-card reveal">
         <h1>{portfolio.name}</h1>
         <p className="role">{portfolio.title}</p>
         <p className="tagline">{portfolio.tagline}</p>
@@ -248,12 +283,12 @@ function App() {
         </div>
       </header>
 
-      <section className="panel reveal reveal-delay-1">
+      <section id="summary" className="panel reveal reveal-delay-1">
         <h2>Professional Summary</h2>
         <p>{portfolio.summary}</p>
       </section>
 
-      <section className="panel reveal reveal-delay-2">
+      <section id="what-i-do" className="panel reveal reveal-delay-2">
         <h2>What I Do</h2>
         <ul className="content-list">
           {whatIDo.map((item) => (
@@ -262,7 +297,7 @@ function App() {
         </ul>
       </section>
 
-      <section className="panel reveal reveal-delay-2">
+      <section id="services" className="panel reveal reveal-delay-2">
         <h2>Services</h2>
         <ul className="skill-list">
           {services.map((service) => (
@@ -271,7 +306,7 @@ function App() {
         </ul>
       </section>
 
-      <section className="panel reveal reveal-delay-2">
+      <section id="tech" className="panel reveal reveal-delay-2">
         <h2>Tech Stack</h2>
         <ul className="skill-list">
           {techStack.map((tech) => (
@@ -280,7 +315,7 @@ function App() {
         </ul>
       </section>
 
-      <section className="panel reveal reveal-delay-3">
+      <section id="highlights" className="panel reveal reveal-delay-3">
         <h2>Professional Highlights</h2>
         <ul className="content-list">
           {highlights.map((item) => (
@@ -289,7 +324,7 @@ function App() {
         </ul>
       </section>
 
-      <section className="panel reveal reveal-delay-3">
+      <section id="projects" className="panel reveal reveal-delay-3">
         <h2>Projects</h2>
         <div className="project-grid">
           {projects.map((project) => (
@@ -306,6 +341,7 @@ function App() {
         </div>
       </section>
     </main>
+    </>
   )
 }
 
