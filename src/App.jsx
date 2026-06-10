@@ -2,12 +2,12 @@ import { useState, useEffect } from 'react'
 
 const portfolio = {
   name: 'Youssab Ayman',
-  title: 'Full Stack Developer (Next.js, Node.js)',
-  role: 'Full Stack Developer (Next.js, Node.js)',
+  title: 'Full Stack Developer (Next.js, Node.js   , Nest Js)',
+  role: 'Full Stack Developer (Next.js, Node.js , Nest Js)',
   tagline:
     'I build scalable full stack products where clean architecture meets intelligent automation.',
   intro:
-    'Full Stack Developer specializing in Next.js, Node.js, and cloud-native applications. I combine strong backend engineering with modern frontend execution to deliver high-performance platforms — from secure CRM systems and client portals to AI-powered automation workflows.',
+    'Full Stack Developer specializing in React.js, Next.js, Node.js, and NestJS, with experience building scalable web applications, Trading CRM systems, Client Portals, and SaaS platforms. Skilled in designing secure RESTful APIs, microservices architectures, and cloud-based solutions using AWS, MongoDB, PostgreSQL, Supabase, and Firebase. Passionate about delivering high-performance, scalable, and user-focused products with modern DevOps and CI/CD practices.',
   summary:
     'Full Stack Developer specializing in Next.js, Node.js, and cloud-native applications. Expert in building secure CRM systems, client portals, and RESTful APIs with modern DevOps practices.',  
   about:
@@ -17,7 +17,7 @@ const portfolio = {
   email: 'youssabaymn@gmail.com',
   github: 'https://github.com/youssabayman1',
   linkedin: 'https://www.linkedin.com/in/youssab-ayman-5ab9801a7/',
-  cv: 'https://drive.google.com/file/d/1mAiOqTVIC7jna0eYCDS2cfyTfrdkfXTe/view?usp=sharing',
+  cv: 'https://drive.google.com/file/d/1C7kObRI74I-ctRhau2CBcxb0rYwX_Y2I/view?usp=drive_link',
 }
 
 const whatIDo = [
@@ -56,6 +56,7 @@ const skills = {
   ],
   'Backend Development': [
     'Node.js',
+    'NestJS',
     'Express.js',
     'RESTful APIs',
     'GraphQL',
@@ -141,6 +142,13 @@ const projects = [
     link: '#',
   },
   {
+    title: 'Tracking System',
+    summary:
+      'Employee tracking system with check-in/check-out, leave/vacation/sick requests, automatic work-hours calculation, geolocation-based attendance verification, and a dashboard with analytics and charts for attendance and productivity.',
+    stack: ['React', 'Node.js', 'NestJS', 'PostgreSQL', 'Firebase', 'AWS', 'Chart.js', 'Geolocation API'],
+    link: '#',
+  },
+  {
     title: 'AI FAQ System',
     summary:
       'Developed an AI-powered question-answering platform using Python and Node.js, implementing RAG and MCP with knowledge base integration for accurate, context-aware responses.',
@@ -221,8 +229,10 @@ function App() {
   useEffect(() => {
     const observerOptions = {
       root: null,
-      rootMargin: '0px 0px -100px 0px', // Trigger slightly before element enters viewport
-      threshold: 0.15, // Trigger when 15% of element is visible
+      // Expand the root bounding box so elements trigger earlier (200px before entering viewport)
+      rootMargin: '0px 0px 200px 0px',
+      // Trigger as soon as any part of the element intersects
+      threshold: 0,
     }
 
     const observerCallback = (entries) => {
