@@ -1,0 +1,649 @@
+/* ==========================================================================
+   MOBILE STYLESHEET
+   Every screen-size-specific rule lives here. index.css holds only the
+   desktop/base layer, so this file is the single place to tune phones
+   and tablets.
+
+   Import order matters: this must be loaded AFTER index.css.
+
+   Breakpoints
+     <= 1024px  small laptop / landscape tablet
+     <=  900px  tablet portrait  (nav collapses into the hamburger here)
+     <=  600px  phone
+     <=  380px  small phone
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1024px — tighten the desktop layout
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1024px) {
+  #root {
+    padding: 22px;
+    padding-top: 96px;
+  }
+
+  .nav-container {
+    padding: 12px 20px;
+  }
+
+  .page {
+    gap: 22px;
+  }
+
+  .hero.main-card {
+    padding: 60px 40px 68px;
+  }
+
+  .panel {
+    padding: 36px 30px;
+  }
+
+  .site-footer {
+    padding: 42px 30px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   900px — collapse the navigation into a slide-down menu
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 900px) {
+  html {
+    scroll-padding-top: 84px;
+  }
+
+  #root {
+    padding: 16px;
+    padding-top: 88px;
+  }
+
+  .nav-container {
+    padding: 10px 16px;
+  }
+
+  /* Hamburger replaces the inline links. */
+  .nav-toggle {
+    display: inline-flex;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 66px;
+    left: 12px;
+    right: 12px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    padding: 12px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    background: var(--bg-elevated);
+    box-shadow: var(--shadow-lg);
+
+    /* Closed state: collapsed and untouchable. */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-12px);
+    pointer-events: none;
+    transition: opacity 0.22s var(--ease), transform 0.22s var(--ease),
+      visibility 0.22s var(--ease);
+  }
+
+  .nav-links.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  /* Full-width rows with comfortable 48px touch targets. */
+  .nav-link {
+    padding: 14px 16px;
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+  }
+
+  .nav-cta {
+    margin: 6px 0 0;
+    padding: 14px 16px;
+    border-radius: var(--radius-sm);
+    text-align: center;
+  }
+
+  /* Theme switch moves onto its own labelled row inside the menu. */
+  .nav-switch-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 8px;
+    padding: 12px 16px;
+    border-top: 1px solid var(--line);
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+
+  .nav-switch-row > span {
+    display: inline;
+  }
+
+  .switch {
+    margin-left: 0;
+  }
+
+  /* Dim the page behind the open menu so focus is obvious. */
+  .nav-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    border: 0;
+    padding: 0;
+    background: rgba(6, 24, 27, 0.5);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    animation: navBackdropIn 0.22s var(--ease);
+  }
+
+  @keyframes navBackdropIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+}
+
+/* --------------------------------------------------------------------------
+   600px — phone layout
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 600px) {
+  body {
+    font-size: 15px;
+  }
+
+  #root {
+    padding: 12px;
+    padding-top: 82px;
+  }
+
+  .page {
+    gap: 16px;
+  }
+
+  /* Cards get flatter corners and lighter shadows so they don't feel bulky. */
+  .hero,
+  .panel,
+  .site-footer {
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* Hover lifts are meaningless on touch — turn them off everywhere. */
+  .panel:hover,
+  .what-i-do-card:hover,
+  .skill-category:hover,
+  .highlight-card:hover,
+  .project-card:hover,
+  .summary-stat:hover,
+  .hero-social-card:hover {
+    transform: none;
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* Hero ------------------------------------------------------------------ */
+
+  .hero.main-card {
+    padding: 44px 20px 60px;
+  }
+
+  .hero.main-card::after {
+    width: 240px;
+    height: 240px;
+    top: -110px;
+    right: -90px;
+  }
+
+  .hero-badge {
+    margin-bottom: 18px;
+    padding: 7px 14px;
+    font-size: 0.74rem;
+  }
+
+  h1 {
+    font-size: clamp(1.9rem, 8.5vw, 2.6rem);
+  }
+
+  .role {
+    margin-top: 10px;
+    font-size: 0.86rem;
+    letter-spacing: 0.04em;
+  }
+
+  .hero-intro {
+    margin-top: 18px;
+    font-size: 0.96rem;
+    line-height: 1.75;
+  }
+
+  /* Facts become a 2-up grid instead of wrapping awkwardly. */
+  .hero-facts {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 24px;
+  }
+
+  .hero-fact {
+    min-width: 0;
+    padding: 14px 12px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-fact-value {
+    font-size: 1.3rem;
+  }
+
+  .hero-fact-label {
+    font-size: 0.68rem;
+  }
+
+  .hero-actions-section {
+    margin-top: 28px;
+    gap: 16px;
+    width: 100%;
+  }
+
+  .hero-contact-row {
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+  }
+
+  /* Every hero control stretches to one consistent full-width column. */
+  .cv-button,
+  .hero-social-card,
+  .contact-widget,
+  .contact-tabs,
+  .input-wrapper {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .cv-button {
+    justify-content: center;
+    padding: 15px 20px;
+  }
+
+  .hero-social-card {
+    height: 66px;
+  }
+
+  .contact-tabs {
+    justify-content: stretch;
+  }
+
+  .contact-tab {
+    flex: 1;
+    padding: 11px 12px;
+  }
+
+  /* The copy row is the tightest spot on a phone: let the input shrink
+     so the Copy button is never pushed off-screen. */
+  .input-wrapper {
+    height: 58px;
+    gap: 2px;
+  }
+
+  .icon,
+  .icon-group {
+    margin-left: 10px;
+  }
+
+  .icon-group {
+    gap: 5px;
+  }
+
+  .icon-flag {
+    width: 20px;
+    height: 20px;
+  }
+
+  .icon-small {
+    width: 17px;
+    height: 17px;
+  }
+
+  .input {
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: none;
+    padding-left: 10px;
+    font-size: 0.88rem;
+    text-overflow: ellipsis;
+  }
+
+  .Subscribe-btn {
+    min-width: 88px;
+    padding: 0 14px;
+    font-size: 0.85rem;
+  }
+
+  .scroll-indicator {
+    bottom: 14px;
+    width: 38px;
+    height: 38px;
+  }
+
+  /* Sections -------------------------------------------------------------- */
+
+  .panel {
+    padding: 26px 18px;
+  }
+
+  .panel h2 {
+    padding-bottom: 10px;
+    font-size: 1.35rem;
+  }
+
+  .panel h2::after {
+    width: 44px;
+    height: 3px;
+  }
+
+  .section-lead {
+    font-size: 0.94rem;
+  }
+
+  /* Single column for every grid. */
+  .what-i-do-grid,
+  .skills-grid,
+  .highlights-grid,
+  .project-grid,
+  .summary-highlights {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 22px;
+  }
+
+  .summary-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .summary-badge {
+    padding: 7px 14px;
+    font-size: 0.8rem;
+  }
+
+  .summary-main {
+    padding: 18px 18px;
+  }
+
+  .summary-text {
+    font-size: 0.98rem;
+    line-height: 1.75;
+  }
+
+  .summary-stat {
+    padding: 16px;
+  }
+
+  .what-i-do-card,
+  .highlight-card,
+  .skill-category {
+    padding: 22px 18px;
+  }
+
+  .project-card {
+    padding-bottom: 22px;
+    gap: 12px;
+  }
+
+  .project-card h3,
+  .project-card p,
+  .project-card ul,
+  .project-card-link {
+    width: calc(100% - 36px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .project-card p {
+    font-size: 0.94rem;
+    line-height: 1.8;
+    opacity: 0.92;
+  }
+
+  .project-card-link {
+    width: calc(100% - 36px);
+    padding: 14px 20px;
+    font-size: 0.92rem;
+  }
+
+  .project-carousel-btn {
+    width: 38px;
+    height: 38px;
+  }
+
+  .project-carousel-btn.prev {
+    left: 8px;
+  }
+
+  .project-carousel-btn.next {
+    right: 8px;
+  }
+
+  .what-i-do-icon-wrapper {
+    width: 48px;
+    height: 48px;
+  }
+
+  .what-i-do-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .what-i-do-title,
+  .highlight-title,
+  .project-card h3 {
+    font-size: 1.08rem;
+  }
+
+  .what-i-do-description,
+  .highlight-description,
+  .project-card p {
+    font-size: 0.92rem;
+  }
+
+  .highlight-icon-wrapper {
+    width: 50px;
+    height: 50px;
+  }
+
+  .highlight-icon {
+    width: 26px;
+    height: 26px;
+  }
+
+  /* Hover-only badge would never show on touch — keep it always visible. */
+  .highlight-badge {
+    opacity: 1;
+    top: 14px;
+    right: 14px;
+  }
+
+  .highlight-card::before {
+    transform: scaleX(1);
+  }
+
+  .skill-tag {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+
+  /* Footer ---------------------------------------------------------------- */
+
+  .site-footer {
+    padding: 32px 18px;
+  }
+
+  .site-footer h2 {
+    font-size: 1.35rem;
+  }
+
+  .footer-lead {
+    font-size: 0.94rem;
+  }
+
+  .footer-actions {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 22px;
+  }
+
+  .footer-btn {
+    justify-content: center;
+    width: 100%;
+    padding: 14px 20px;
+  }
+
+  .footer-meta {
+    margin-top: 24px;
+    font-size: 0.8rem;
+  }
+
+  /* Shorter reveal travel keeps scrolling from feeling laggy. */
+  .reveal {
+    transform: translateY(16px);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   380px — small phones (iPhone SE and similar)
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 380px) {
+  #root {
+    padding: 10px;
+    padding-top: 78px;
+  }
+
+  .nav-logo {
+    width: 38px;
+    height: 38px;
+    font-size: 0.95rem;
+  }
+
+  .hero.main-card {
+    padding: 36px 16px 54px;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  .hero-facts {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-fact {
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px;
+  }
+
+  .panel {
+    padding: 22px 14px;
+  }
+
+  .what-i-do-card,
+  .highlight-card,
+  .skill-category {
+    padding: 18px 14px;
+  }
+
+  .project-card {
+    padding-bottom: 20px;
+  }
+
+  .project-card h3,
+  .project-card p,
+  .project-card ul,
+  .project-card-link {
+    width: calc(100% - 28px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .project-card-link {
+    width: calc(100% - 28px);
+  }
+
+  .input {
+    font-size: 0.82rem;
+  }
+
+  .Subscribe-btn {
+    min-width: 76px;
+    padding: 0 10px;
+    font-size: 0.8rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Landscape phones — the hero must not eat the whole viewport
+   -------------------------------------------------------------------------- */
+
+@media (max-height: 520px) and (orientation: landscape) {
+  .hero.main-card {
+    padding-top: 32px;
+    padding-bottom: 44px;
+  }
+
+  .scroll-indicator {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Touch devices — drop hover styling that sticks after a tap
+   -------------------------------------------------------------------------- */
+
+@media (hover: none) {
+  .nav-link:hover,
+  .skill-tag:hover {
+    background: initial;
+    color: inherit;
+  }
+
+  .skill-tag:hover {
+    background: var(--surface-muted);
+    color: var(--text-secondary);
+  }
+
+  .nav-link:hover {
+    background: transparent;
+    color: var(--text-secondary);
+  }
+
+  .cv-button:hover,
+  .nav-cta:hover,
+  .footer-btn:hover,
+  .Subscribe-btn:hover {
+    transform: none;
+  }
+
+  /* Give taps a clear pressed state instead. */
+  .cv-button:active,
+  .nav-cta:active,
+  .footer-btn:active,
+  .Subscribe-btn:active,
+  .contact-tab:active {
+    transform: scale(0.97);
+  }
+}
