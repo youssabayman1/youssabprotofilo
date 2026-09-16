@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 
 const portfolio = {
   name: 'Youssab Ayman',
-  title: 'Full Stack Developer (Next.js, Node.js   , Nest Js)',
+  title: 'Full Stack Developer · Next.js, Node.js & NestJS',
   role: 'Full Stack Developer (Next.js, Node.js , Nest Js)',
   tagline:
     'I build scalable full stack products where clean architecture meets intelligent automation.',
@@ -19,6 +19,21 @@ const portfolio = {
   linkedin: 'https://www.linkedin.com/in/youssab-ayman-5ab9801a7/',
   cv: 'https://drive.google.com/file/d/1C7kObRI74I-ctRhau2CBcxb0rYwX_Y2I/view?usp=drive_link',
 }
+
+const navItems = [
+  { href: '#home', label: 'Home' },
+  { href: '#summary', label: 'About' },
+  { href: '#skills', label: 'Skills' },
+  { href: '#highlights', label: 'Highlights' },
+  { href: '#projects', label: 'Projects' },
+]
+
+const heroFacts = [
+  { value: '4+', label: 'Years Experience' },
+  { value: '12+', label: 'Projects Shipped' },
+  { value: '7', label: 'Skill Areas' },
+  { value: 'Cairo', label: 'Based In / Remote' },
+]
 
 const whatIDo = [
   {
@@ -111,35 +126,59 @@ const highlights = [
     title: 'Enterprise CRM & Portal Development',
     description: 'Built Trading CRM and Client Portal platforms with secure workflows, role-based access control, and real-time data synchronization',
     icon: 'M12,3C7.58,3 4,4.79 4,7C4,9.21 7.58,11 12,11C16.42,11 20,9.21 20,7C20,4.79 16.42,3 12,3M4,9V12C4,14.21 7.58,16 12,16C16.42,16 20,14.21 20,12V9C20,11.21 16.42,13 12,13C7.58,13 4,11.21 4,9M4,14V17C4,19.21 7.58,21 12,21C16.42,21 20,19.21 20,17V14C20,16.21 16.42,18 12,18C7.58,18 4,16.21 4,14Z',
-    color: '#667eea',
+    color: '#0a3b40',
   },
   {
     title: 'Scalable API Architecture',
     description: 'Designed and implemented scalable REST APIs with Node.js, MongoDB, Supabase, and Firebase, handling thousands of concurrent requests',
     icon: 'M12,2C17.52,2 22,6.48 22,12C22,17.52 17.52,22 12,22C6.48,22 2,17.52 2,12C2,6.48 6.48,2 12,2M12,20C16.42,20 20,16.42 20,12C20,7.58 16.42,4 12,4C7.58,4 4,7.58 4,12C4,16.42 7.58,20 12,20M13,7H11V11H7V13H11V17H13V13H17V11H13V7Z',
-    color: '#764ba2',
+    color: '#c25f2c',
   },
   {
     title: 'DevOps & CI/CD Excellence',
     description: 'Implemented automated CI/CD pipelines with GitHub Actions and cloud deployments, reducing deployment time by 70% and ensuring zero-downtime releases',
     icon: 'M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M7.5,8.67L9,10.17L11.67,7.5L13.17,9L10.5,11.67L12,13.17L14.67,10.5L16.17,12L13.5,14.67L15,16.17L12.33,18.83L10.83,17.33L8.17,20L6.67,18.5L9.33,15.83L7.83,14.33L5.17,17L3.67,15.5L6.33,12.83L4.83,11.33L7.5,8.67Z',
-    color: '#0d7a72',
+    color: '#1a838c',
   },
   {
     title: 'AI-Powered Solutions',
     description: 'Developed intelligent systems with RAG technology and automation workflows, improving response accuracy by 85% and operational efficiency',
     icon: 'M17.75,4.09L15.22,6.03L16.13,9.09L13.5,7.28L10.87,9.09L11.78,6.03L9.25,4.09L12.44,4L13.5,1L14.56,4L17.75,4.09M21.25,11L19.61,12.25L20.2,14.23L18.5,13.06L16.8,14.23L17.39,12.25L15.75,11L17.81,10.95L18.5,9L19.19,10.95L21.25,11M18.97,15.95C19.8,15.87 20.69,17.05 20.16,17.8C19.84,18.25 19.5,18.67 19.08,19.07C15.17,23 8.84,23 4.94,19.07C1.03,15.17 1.03,8.83 4.94,4.93C5.34,4.53 5.76,4.17 6.21,3.85C6.96,3.32 8.14,4.21 8.06,5.04C7.79,7.9 8.75,10.87 10.95,13.06C13.14,15.26 16.1,16.22 18.97,15.95M17.33,17.97C14.5,17.81 11.7,16.64 9.53,14.5C7.36,12.31 6.2,9.5 6.04,6.68C3.23,9.82 3.34,14.64 6.35,17.66C9.37,20.67 14.19,20.78 17.33,17.97Z',
-    color: '#ff8f3f',
+    color: '#d97742',
   },
 ]
 
 const projects = [
   {
-    title: 'Client Portal System',
+    title: 'Client Zone',
     summary:
-      'Built a secure client portal with Next.js, Supabase authentication, Swagger API documentation, Strapi CMS, and Firebase push notifications. Integrated third-party messaging services with role management, dashboard analytics, and protected backend APIs for modern operational visibility.',
+      'Built a secure trading client portal for DB Investing with Next.js, Supabase authentication, Swagger API documentation, Strapi CMS, and Firebase push notifications. Integrated third-party messaging services with role management, dashboard analytics, and protected backend APIs for modern operational visibility.',
     stack: ['Next.js', 'Supabase', 'Swagger', 'Strapi', 'Firebase', 'Node.js'],
+    link: 'https://secure.dbinvesting.com/',
+    image: 'projects/client-zone.png',
+  },
+  {
+    title: 'Traders Hub',
+    summary:
+      'Built a social trading platform where users publish ideas in the community and share trading signals with role-based access. Signals and academy content require admin approval before going live. Includes chat rooms, an academy marketplace where providers publish paid courses, and subscription flows for learners — powered by Next.js, NestJS, Prisma, and Supabase.',
+    stack: ['Next.js', 'NestJS', 'Prisma', 'Supabase', 'Auth', 'REST APIs'],
     link: '#',
+    image: 'projects/traders-hub-dashboard.png',
+  },
+  {
+    title: 'PBM Dynamics',
+    summary:
+      'Built a real estate analytics platform used by 500+ clients to explore market statistics, property trends, and performance insights. Developed a React frontend and Node.js backend with MongoDB, secured by JWT authentication, and integrated Power BI dashboards for interactive reporting and executive-level visibility.',
+    stack: ['React', 'Node.js', 'MongoDB', 'JWT', 'Power BI', 'REST APIs'],
+    link: '#',
+  },
+  {
+    title: 'Ticketing System',
+    summary:
+      'Built a company-wide support platform where clients can create and track tickets through a full lifecycle: Open, In Progress, Under Evaluation, and Closed. Delivered a React interface with live comment threads on every ticket, an anchoring system for linking related issues, and secure authentication connected to a Node.js backend with Supabase as the database.',
+    stack: ['React', 'Node.js', 'Supabase', 'Auth', 'REST APIs'],
+    link: '#',
+    image: 'projects/ticketing-dashboard.png',
   },
   {
     title: 'Tracking System',
@@ -147,20 +186,33 @@ const projects = [
       'Employee tracking system with check-in/check-out, leave/vacation/sick requests, automatic work-hours calculation, geolocation-based attendance verification, and a dashboard with analytics and charts for attendance and productivity.',
     stack: ['React', 'Node.js', 'NestJS', 'PostgreSQL', 'Firebase', 'AWS', 'Chart.js', 'Geolocation API'],
     link: '#',
+    images: [
+      'projects/tracking-today.png',
+      'projects/tracking-leave.png',
+      'projects/tracking-dashboard.png',
+    ],
+    imageLabels: ['Today tracking', 'Leave requests', 'Analytics dashboard'],
   },
   {
-    title: 'AI FAQ System',
+    title: 'AI FAQ Chatbot',
     summary:
-      'Developed an AI-powered question-answering platform using Python and Node.js, implementing RAG and MCP with knowledge base integration for accurate, context-aware responses.',
-    stack: ['Python', 'Node.js', 'RAG', 'MCP'],
+      'Built a company support chatbot powered by OpenAI that answers user questions using a trained knowledge base scoped to company information only. Users get instant, accurate replies about accounts, trading, deposits, withdrawals, and more — with quick-action shortcuts for common topics and 24/7 availability.',
+    stack: ['OpenAI', 'Node.js', 'Python', 'RAG', 'Knowledge Base'],
     link: '#',
+    image: 'projects/ai-faq-chatbot.png',
   },
   {
     title: 'Tech Yard Website',
     summary:
-      'Designed and implemented scalable backend architecture for Apple-focused e-commerce workflows with JWT authentication, RBAC, product catalog APIs, cart operations, and optimized indexing for high-performance search and transactions.',
-    stack: ['Next.js', 'Node.js', 'MongoDB', 'JWT'],
+      'Built an Apple-focused e-commerce platform with a clean storefront, product catalog, and secure login. Delivered scalable backend architecture with JWT authentication, RBAC, product catalog APIs, cart operations, and optimized indexing for high-performance search and transactions.',
+    stack: ['Next.js', 'Node.js', 'MongoDB', 'JWT', 'RBAC'],
     link: '#',
+    images: [
+      'projects/tech-yard-landing.png',
+      'projects/tech-yard-catalog.png',
+      'projects/tech-yard-login.png',
+    ],
+    imageLabels: ['Homepage', 'Product catalog', 'Login'],
   },
   {
     title: 'Aflamy Website',
@@ -179,9 +231,15 @@ const projects = [
   {
     title: 'Educare Learning Platform',
     summary:
-      'Created RESTful APIs for course and user management, implementing JWT authentication and role-based access control for secure educational workflows.',
-    stack: ['Node.js', 'MongoDB', 'JWT', 'RBAC'],
+      'Built a full learning platform with a marketing landing page, secure login, and a classroom dashboard. Delivered RESTful APIs for course and user management with JWT authentication and role-based access control.',
+    stack: ['Node.js', 'MongoDB', 'JWT', 'RBAC', 'React'],
     link: '#',
+    images: [
+      'projects/educare-landing.png',
+      'projects/educare-login.png',
+      'projects/educare-classrooms.png',
+    ],
+    imageLabels: ['Landing page', 'Login', 'Classrooms dashboard'],
   },
   {
     title: 'Auto Parts System',
@@ -213,9 +271,87 @@ const projects = [
   },
 ]
 
+function ProjectMedia({ project }) {
+  const images = project.images ?? (project.image ? [project.image] : [])
+  const [activeIndex, setActiveIndex] = useState(0)
+  const baseUrl = import.meta.env.BASE_URL
+
+  if (images.length === 0) {
+    return (
+      <div className="project-card-placeholder" aria-hidden="true">
+        <span>
+          {project.title
+            .split(' ')
+            .map((word) => word[0])
+            .join('')
+            .slice(0, 2)}
+        </span>
+      </div>
+    )
+  }
+
+  const goTo = (index) => {
+    setActiveIndex((index + images.length) % images.length)
+  }
+
+  const labels =
+    project.imageLabels ?? images.map((_, index) => `Screenshot ${index + 1}`)
+
+  return (
+    <div className="project-card-carousel">
+      <img
+        src={`${baseUrl}${images[activeIndex]}`}
+        alt={`${project.title} — ${labels[activeIndex]}`}
+        loading="lazy"
+        decoding="async"
+      />
+
+      {images.length > 1 && (
+        <>
+          <button
+            type="button"
+            className="project-carousel-btn prev"
+            onClick={() => goTo(activeIndex - 1)}
+            aria-label="Previous screenshot"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" />
+            </svg>
+          </button>
+          <button
+            type="button"
+            className="project-carousel-btn next"
+            onClick={() => goTo(activeIndex + 1)}
+            aria-label="Next screenshot"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+            </svg>
+          </button>
+
+          <div className="project-carousel-dots" role="tablist" aria-label="Project screenshots">
+            {images.map((_, index) => (
+              <button
+                key={index}
+                type="button"
+                role="tab"
+                className={`project-carousel-dot ${index === activeIndex ? 'active' : ''}`}
+                onClick={() => setActiveIndex(index)}
+                aria-label={`Show screenshot ${index + 1}`}
+                aria-selected={index === activeIndex}
+              />
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  )
+}
+
 function App() {
   const [copied, setCopied] = useState(false)
   const [activeTab, setActiveTab] = useState('email')
+  const [menuOpen, setMenuOpen] = useState(false)
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem('theme') || 'light'
   })
@@ -256,6 +392,25 @@ function App() {
     }
   }, [])
 
+  // Close the mobile menu on Escape, and keep the page from scrolling behind it.
+  useEffect(() => {
+    if (!menuOpen) return
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') setMenuOpen(false)
+    }
+
+    document.addEventListener('keydown', handleKeyDown)
+    document.body.style.overflow = 'hidden'
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown)
+      document.body.style.overflow = ''
+    }
+  }, [menuOpen])
+
+  const closeMenu = () => setMenuOpen(false)
+
   const toggleTheme = () => {
     setTheme(theme === 'light' ? 'dark' : 'light')
   }
@@ -287,30 +442,88 @@ function App() {
     <div className="container">
       <nav className="nav-header">
         <div className="nav-container">
-          <a href="#home" className="nav-logo">YA</a>
-          <div className="nav-links">
-            <a href="#home" className="nav-link">Home</a>
-            <a href="#summary" className="nav-link">About</a>
-            <a href="#skills" className="nav-link">Skills</a>
-            <a href="#projects" className="nav-link">Projects</a>
-            <label className="switch">
-              <input 
-                type="checkbox" 
-                checked={theme === 'dark'}
-                onChange={toggleTheme}
-                aria-label="Toggle theme"
+          <a href="#home" className="nav-logo" aria-label="Back to top">YA</a>
+
+          <button
+            type="button"
+            className="nav-toggle"
+            onClick={() => setMenuOpen((open) => !open)}
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={menuOpen}
+            aria-controls="primary-navigation"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d={
+                  menuOpen
+                    ? 'M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z'
+                    : 'M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z'
+                }
               />
-              <span className="slider"></span>
-            </label>
+            </svg>
+          </button>
+
+          <div
+            id="primary-navigation"
+            className={`nav-links ${menuOpen ? 'open' : ''}`}
+          >
+            {navItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="nav-link"
+                onClick={closeMenu}
+              >
+                {item.label}
+              </a>
+            ))}
+            <a href="#contact" className="nav-cta" onClick={closeMenu}>
+              Hire Me
+            </a>
+            <div className="nav-switch-row">
+              <span>Dark mode</span>
+              <label className="switch">
+                <input
+                  type="checkbox"
+                  checked={theme === 'dark'}
+                  onChange={toggleTheme}
+                  aria-label="Toggle dark mode"
+                />
+                <span className="slider"></span>
+              </label>
+            </div>
           </div>
         </div>
       </nav>
+
+      {menuOpen && (
+        <button
+          type="button"
+          className="nav-backdrop"
+          onClick={closeMenu}
+          aria-label="Close menu"
+          tabIndex={-1}
+        />
+      )}
       
       <main className="page">
         <header id="home" className="hero main-card reveal">
+        <p className="hero-badge">
+          <span className="hero-badge-dot" aria-hidden="true"></span>
+          Available for new opportunities
+        </p>
         <h1>{portfolio.name}</h1>
         <p className="role">{portfolio.title}</p>
-        <p className="hero-intro">{portfolio.intro}</p>
+        <p className="hero-intro">{portfolio.tagline}</p>
+
+        <ul className="hero-facts">
+          {heroFacts.map((fact) => (
+            <li key={fact.label} className="hero-fact">
+              <span className="hero-fact-value">{fact.value}</span>
+              <span className="hero-fact-label">{fact.label}</span>
+            </li>
+          ))}
+        </ul>
         
         <div className="hero-actions-section">
           <a 
@@ -458,6 +671,8 @@ function App() {
           <div className="summary-main">
             <p className="summary-text">{portfolio.summary}</p>
           </div>
+
+          <p className="section-lead">{portfolio.about}</p>
           
           <div className="summary-highlights">
             <div className="summary-stat">
@@ -557,6 +772,10 @@ function App() {
         <div className="project-grid">
           {projects.map((project) => (
             <article key={project.title} className="project-card">
+              <div className="project-card-media">
+                <ProjectMedia project={project} />
+              </div>
+
               <h3>{project.title}</h3>
               <p>{project.summary}</p>
               <ul>
@@ -564,10 +783,63 @@ function App() {
                   <li key={item}>{item}</li>
                 ))}
               </ul>
+
+              {project.link && project.link !== '#' && (
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="project-card-link"
+                >
+                  Visit live site
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z" />
+                  </svg>
+                </a>
+              )}
             </article>
           ))}
         </div>
       </section>
+
+      <footer id="contact" className="site-footer reveal">
+        <h2>Let&apos;s build something together</h2>
+        <p className="footer-lead">
+          Open to full stack roles and freelance work. The fastest way to reach me
+          is email — I usually reply within a day.
+        </p>
+
+        <div className="footer-actions">
+          <a href={`mailto:${portfolio.email}`} className="footer-btn primary">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20 5A2 2 0 0 1 22 7V17A2 2 0 0 1 20 19H4A2 2 0 0 1 2 17V7A2 2 0 0 1 4 5H20ZM20 8.24L12 13.57L4 8.24V17H20V8.24Z" />
+            </svg>
+            {portfolio.email}
+          </a>
+          <a href={`tel:${portfolio.phone.replace(/\s/g, '')}`} className="footer-btn">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6.62 10.79C8.06 13.62 10.38 15.94 13.21 17.38L15.41 15.18C15.69 14.9 16.08 14.82 16.43 14.93C17.55 15.3 18.75 15.5 20 15.5C20.55 15.5 21 15.95 21 16.5V20C21 20.55 20.55 21 20 21C10.61 21 3 13.39 3 4C3 3.45 3.45 3 4 3H7.5C8.05 3 8.5 3.45 8.5 4C8.5 5.25 8.7 6.45 9.07 7.57C9.18 7.92 9.1 8.31 8.82 8.59L6.62 10.79Z" />
+            </svg>
+            {portfolio.phone}
+          </a>
+          <a
+            href={portfolio.linkedin}
+            target="_blank"
+            rel="noreferrer"
+            className="footer-btn"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19ZM8.34 17.34V9.73H5.81V17.34H8.34ZM7.08 8.69A1.47 1.47 0 1 0 7.08 5.75A1.47 1.47 0 0 0 7.08 8.69ZM18.19 17.34V13.18C18.19 10.95 17 9.56 14.97 9.56C14 9.56 13.35 10.1 13.08 10.6V9.73H10.56V17.34H13.08V13.57C13.08 12.58 13.27 11.61 14.5 11.61C15.71 11.61 15.73 12.74 15.73 13.63V17.34H18.19Z" />
+            </svg>
+            LinkedIn
+          </a>
+        </div>
+
+        <p className="footer-meta">
+          {portfolio.city} · Open to remote · © {new Date().getFullYear()}{' '}
+          {portfolio.name}
+        </p>
+      </footer>
     </main>
     </div>
   )
