@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Youssab Ayman  Full Stack Developer">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#062a2e"/>
+      <stop offset="45%" stop-color="#0a3b40"/>
+      <stop offset="100%" stop-color="#12666f"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#d97742"/>
+      <stop offset="100%" stop-color="#c25f2c"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1040" cy="120" r="180" fill="#d97742" opacity="0.14"/>
+  <circle cx="140" cy="520" r="220" fill="#1a838c" opacity="0.18"/>
+
+  <rect x="88" y="88" width="88" height="88" rx="20" fill="url(#accent)"/>
+  <text
+    x="132"
+    y="148"
+    text-anchor="middle"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="34"
+    font-weight="800"
+    fill="#ffffff"
+    letter-spacing="1"
+  >YA</text>
+
+  <text
+    x="210"
+    y="132"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="54"
+    font-weight="800"
+    fill="#ffffff"
+  >Youssab Ayman</text>
+
+  <text
+    x="210"
+    y="182"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="28"
+    font-weight="600"
+    fill="#e8945f"
+  >Full Stack Developer</text>
+
+  <text
+    x="88"
+    y="280"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="30"
+    fill="#ede4d6"
+    opacity="0.92"
+  >Next.js · Node.js · NestJS · React · MongoDB · Supabase</text>
+
+  <text
+    x="88"
+    y="340"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="24"
+    fill="#a3b6b5"
+  >4+ years building scalable web apps, CRM systems, and cloud platforms</text>
+
+  <rect x="88" y="420" width="260" height="56" rx="28" fill="url(#accent)"/>
+  <text
+    x="218"
+    y="456"
+    text-anchor="middle"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="22"
+    font-weight="700"
+    fill="#ffffff"
+  >View Portfolio</text>
+</svg>

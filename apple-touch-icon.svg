@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" role="img" aria-label="Youssab Ayman Portfolio">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a3b40"/>
+      <stop offset="55%" stop-color="#12666f"/>
+      <stop offset="100%" stop-color="#c25f2c"/>
+    </linearGradient>
+  </defs>
+  <rect width="180" height="180" rx="36" fill="url(#bg)"/>
+  <text
+    x="90"
+    y="112"
+    text-anchor="middle"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="62"
+    font-weight="800"
+    fill="#ffffff"
+    letter-spacing="2"
+  >YA</text>
+</svg>
